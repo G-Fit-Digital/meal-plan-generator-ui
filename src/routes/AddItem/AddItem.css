@@ -1,0 +1,29 @@
+.AddItem_Container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+.AddItem_TextInput {
+  height: 40px;
+  width: 800px;
+  font-size: 18px;
+  outline: none;
+  padding: 0px;
+  align-self: center;
+  border: 1px black solid;
+  padding-left: 15px;
+  border-radius: 6px;
+}
+.AddItem_SearchButton_Wrapper {
+  position: relative;
+  right: 81px;
+  top: -2px;
+  width: 80px;
+  height: 40px;
+  padding: 0px;
+  border: 0px black solid;
+  border-left-width: 1px;
+  border-radius: 6px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
