@@ -1,0 +1,22 @@
+.FlatListContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  overflow-y: scroll;
+  height: 89vh;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+.FlatList_ItemContainer {
+  width: 100%;
+  cursor: pointer;
+  height: 50px;
+  background-color: grey;
+  width: 800px;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+.FlatList_ItemText {
+  font-weight: bold;
+}
