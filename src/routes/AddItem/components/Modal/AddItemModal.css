@@ -11,8 +11,14 @@
 .AddItemModal_NutritionRow {
   padding-left: 25px;
   padding-right: 25px;
-  width: 50%;
+  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.ReactModal__Overlay {
+  width: 50%;
+}
+.ReactModal__Content {
+  width: 100%;
 }

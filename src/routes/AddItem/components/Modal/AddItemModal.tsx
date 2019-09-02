@@ -4,7 +4,6 @@ import { mapDispatchActions } from "../../../../utils/redux";
 import { useDispatch, useMappedState } from "redux-react-hook";
 import { toggleModal } from "../../../../store/actions/item";
 import "./AddItemModal.css";
-import axios from "axios";
 import { nutrients } from "../../../../utils/data";
 import { lookUpItem } from "../../../../utils/lookupItem";
 
@@ -39,7 +38,7 @@ export default ({ isOpen }: any) => {
     );
   }, [item]);
   return (
-    <Modal isOpen={isOpen}>
+    <Modal style={{}} isOpen={isOpen}>
       <div className="AddItemModal_Container">
         <div>
           <h1>{item.name}</h1>
