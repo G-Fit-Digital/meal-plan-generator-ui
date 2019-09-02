@@ -1,0 +1,18 @@
+.AddItemModal_Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.AddItemModal_Exit {
+  cursor: pointer;
+}
+.AddItemModal_NutritionRow {
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
