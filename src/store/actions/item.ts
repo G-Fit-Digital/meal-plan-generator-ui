@@ -1,10 +1,14 @@
-import { SET_ITEM } from "../types/item";
+import { SET_ITEM, TOGGLE_MODAL } from "../types/item";
 
 export function setItem(item: Object) {
-  console.log("HERE");
-  console.log(item);
   return {
     type: SET_ITEM,
     payload: item
+  };
+}
+export function toggleModal(open: Boolean) {
+  return {
+    type: TOGGLE_MODAL,
+    payload: open
   };
 }
