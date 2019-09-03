@@ -4,7 +4,12 @@ import { mapDispatchActions } from "../../../../utils/redux";
 import { useDispatch, useMappedState } from "redux-react-hook";
 import { toggleModal } from "../../../../store/actions/item";
 import "./AddItemModal.css";
-import { nutrients } from "../../../../utils/data";
+import {
+  nutrients,
+  dietaryRestrictions,
+  foodCategory,
+  mealCategory
+} from "../../../../utils/data";
 import { lookUpItem } from "../../../../utils/lookupItem";
 import Select from "react-dropdown-select";
 
@@ -13,6 +18,9 @@ const mappedState = (state: any) => ({
 });
 
 export default ({ isOpen }: any) => {
+  const [dietaryConcerns, setDietaryConcerns] = useState([]);
+  const [foodCategories, setFoodCategories] = useState([]);
+  const [mealCategories, setMealCategories] = useState([]);
   const [value, setValue] = useState("");
   const [response, setResponse] = useState();
   const [servingIndex, setServingIndex] = useState(0);
@@ -63,10 +71,8 @@ export default ({ isOpen }: any) => {
       <div className="AddItemModal_Container">
         <div>
           <h1>{item.name}</h1>
-          <div style={{ flexDirection: "row", display: "flex" }}>
-            <h3 style={{ alignSelf: "center", marginRight: 20 }}>
-              Serving Size:{" "}
-            </h3>
+          <div className="AddItemModal_ServingSize">
+            <h3>Serving Size: </h3>
             {response && (
               <Select
                 placeholder={
@@ -95,6 +101,44 @@ export default ({ isOpen }: any) => {
           <p>{eval(el.value)} grams</p>
         </div>
       ))}
+      <div className="AddItemModal_DropDownContainer">
+        <div className="AddItemModal_DropDownWrapper">
+          <h3>Serving Size: </h3>
+          <Select
+            multi
+            onChange={concern => {
+              setDietaryConcerns(concern);
+            }}
+            values={[]}
+            options={dietaryRestrictions}
+            placeholder="Dietary Restriction"
+          />
+        </div>
+        <div className="AddItemModal_DropDownWrapper">
+          <h3>Serving Size: </h3>
+          <Select
+            multi
+            onChange={category => {
+              setFoodCategories(category);
+            }}
+            values={[]}
+            options={foodCategory}
+            placeholder="Food Category"
+          />
+        </div>
+        <div className="AddItemModal_DropDownWrapper">
+          <h3>Serving Size: </h3>
+          <Select
+            multi
+            onChange={category => {
+              setMealCategories(category);
+            }}
+            values={[]}
+            options={mealCategory}
+            placeholder="Meal Category"
+          />
+        </div>
+      </div>
     </Modal>
   );
 };

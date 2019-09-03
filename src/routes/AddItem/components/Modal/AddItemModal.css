@@ -22,3 +22,15 @@
 .ReactModal__Content {
   width: 100%;
 }
+.AddItemModal_ServingSize {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+.AddItemModal_DropDownContainer {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.AddItemModal_DropDownWrapper {
+  width: 50%;
+}
