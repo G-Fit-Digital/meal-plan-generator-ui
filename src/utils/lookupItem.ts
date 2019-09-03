@@ -9,7 +9,8 @@ export function lookUpItem(
   setCarbs: Function,
   setCalories: Function,
   setFibre: Function,
-  setResponse: Function
+  setResponse: Function,
+  setServingSize: Function
 ) {
   if (item.ndbno) {
     axios
@@ -17,6 +18,7 @@ export function lookUpItem(
       .then(res => {
         setResponse(res.data);
         setServing(res.data.report.food.nutrients[0].measures[index].label);
+        setServingSize(res.data.report.food.nutrients[0].measures[index].value);
         console.log(res.data.report.food.nutrients);
         for (var i = 0; i < res.data.report.food.nutrients.length; i++) {
           switch (res.data.report.food.nutrients[i].name) {

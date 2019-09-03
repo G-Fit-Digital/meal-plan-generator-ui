@@ -19,6 +19,7 @@ const mappedState = (state: any) => ({
 
 export default ({ isOpen }: any) => {
   const [dietaryConcerns, setDietaryConcerns] = useState([]);
+  const [servingSize, setServingSize] = useState(0);
   const [foodCategories, setFoodCategories] = useState([]);
   const [mealCategories, setMealCategories] = useState([]);
   const [value, setValue] = useState("");
@@ -39,6 +40,7 @@ export default ({ isOpen }: any) => {
     dispatch
   );
   useEffect(() => {
+    console.log(servingSize + " grams");
     lookUpItem(
       servingIndex,
       item,
@@ -48,7 +50,8 @@ export default ({ isOpen }: any) => {
       setCarbs,
       setCalories,
       setFibre,
-      setResponse
+      setResponse,
+      setServingSize
     );
   }, [item, servingIndex]);
   function updateIndex(value: any) {
