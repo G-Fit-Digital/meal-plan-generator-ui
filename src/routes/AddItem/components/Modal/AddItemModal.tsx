@@ -138,6 +138,22 @@ export default ({ isOpen }: any) => {
             placeholder="Meal Category"
           />
         </div>
+        <button
+          style={{
+            marginTop: 25,
+            backgroundColor: "blue",
+            height: 48,
+            width: 150,
+            cursor: "pointer",
+            fontSize: 20,
+            color: "#FFF",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: 25
+          }}
+        >
+          Add Item
+        </button>
       </div>
     </Modal>
   );
