@@ -34,3 +34,15 @@
 .AddItemModal_DropDownWrapper {
   width: 50%;
 }
+.AddItemModal_Button {
+  margin-top: 25px;
+  background-color: blue;
+  height: 48px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+}
