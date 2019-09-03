@@ -12,6 +12,7 @@ import {
 } from "../../../../utils/data";
 import { lookUpItem } from "../../../../utils/lookupItem";
 import Select from "react-dropdown-select";
+import axios from "axios";
 
 const mappedState = (state: any) => ({
   item: state.itemReducer.item
@@ -69,6 +70,37 @@ export default ({ isOpen }: any) => {
       }
     }
   }
+  function addFoodItem() {
+    let meal_category = [] as any;
+    for (var i = 0; i < mealCategories.length; i++) {
+      meal_category.push(mealCategories[i].value);
+    }
+    let food_category = [] as any;
+    for (var i = 0; i < foodCategories.length; i++) {
+      food_category.push(foodCategories[i].value);
+    }
+    let dietary_concerns = [] as any;
+    for (var i = 0; i < dietaryConcerns.length; i++) {
+      dietary_concerns.push(dietaryConcerns[i].value);
+    }
+    console.log(mealCategories);
+    axios
+      .post(`http://localhost:3000/api/item`, {
+        name: item.name,
+        meal_category: meal_category,
+        food_category: food_category,
+        dietary_restrictions: dietary_concerns,
+        portion_in_grams: servingSize,
+        protein,
+        fat,
+        carbs,
+        calories,
+        fibre
+      })
+      .then(res => {
+        console.log(res);
+      });
+  }
   return (
     <Modal isOpen={isOpen}>
       <div className="AddItemModal_Container">
@@ -106,7 +138,7 @@ export default ({ isOpen }: any) => {
       ))}
       <div className="AddItemModal_DropDownContainer">
         <div className="AddItemModal_DropDownWrapper">
-          <h3>Serving Size: </h3>
+          <h3>Dietary Concerns: </h3>
           <Select
             multi
             onChange={concern => {
@@ -118,7 +150,7 @@ export default ({ isOpen }: any) => {
           />
         </div>
         <div className="AddItemModal_DropDownWrapper">
-          <h3>Serving Size: </h3>
+          <h3>Food Categories: </h3>
           <Select
             multi
             onChange={category => {
@@ -130,7 +162,7 @@ export default ({ isOpen }: any) => {
           />
         </div>
         <div className="AddItemModal_DropDownWrapper">
-          <h3>Serving Size: </h3>
+          <h3>Meal Categories: </h3>
           <Select
             multi
             onChange={category => {
@@ -141,7 +173,9 @@ export default ({ isOpen }: any) => {
             placeholder="Meal Category"
           />
         </div>
-        <button className="AddItemModal_Button">Add Item</button>
+        <button onClick={() => addFoodItem()} className="AddItemModal_Button">
+          Add Item
+        </button>
       </div>
     </Modal>
   );

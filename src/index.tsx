@@ -5,6 +5,7 @@ import AddItem from "./routes/AddItem/AddItem";
 import * as serviceWorker from "./serviceWorker";
 import { StoreContext } from "redux-react-hook";
 import configureStore from "./store/store";
+import("./ReactoTronConfig").then(() => console.log("Reactotron Configured"));
 
 const store = configureStore();
 
