@@ -69,6 +69,10 @@ export default ({ isOpen }: any) => {
             </h3>
             {response && (
               <Select
+                placeholder={
+                  response.report.food.nutrients[0].measures[0].label
+                }
+                valueField={response.report.food.nutrients[0].measures[value]}
                 values={[]}
                 onChange={value => {
                   updateIndex(value);
