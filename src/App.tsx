@@ -1,32 +1,43 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import axios from "axios";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Sidebar from "react-sidebar";
+import { useMappedState } from "redux-react-hook";
+import Drawer from "./components/Drawer/Drawer";
+import AddItem from "./routes/AddItem/AddItem";
 
-const App: React.FC = () => {
-  const [query, setQuery] = useState("");
+const mappedState = (state: any) => ({
+  drawerOpen: state.configReducer.drawerOpen
+});
+
+export default ({ props }: any) => {
+  const { drawerOpen } = useMappedState(mappedState);
+  const [width, setWidth] = useState(window.innerWidth);
+  function resize() {
+    setWidth(window.innerWidth);
+  }
   useEffect(() => {
-    axios.get(`http://localhost:3000/search/${query}`).then(res => {
-      console.log(res);
+    window.addEventListener("resize", () => {
+      resize();
     });
-  }, [query]);
+  }, []);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-      }}
-    >
-      <p>Add Menu Item To Database</p>
-      <input
-        onChange={e => setQuery(e.target.value)}
-        value={query}
-        style={{ height: 40, width: 1000, fontSize: 18, outline: "none" }}
-        type="text"
-        placeholder="Search Meal Item By Name"
+    <Router>
+      <Route
+        render={props => (
+          <Sidebar sidebar={<Drawer props={props} />} open={drawerOpen}>
+            <Route
+              component={(props: Object) => (
+                <React.Fragment>
+                  <Header props={props} />
+                </React.Fragment>
+              )}
+            />
+            <Route path="/" component={AddItem} />
+          </Sidebar>
+        )}
       />
-    </div>
+    </Router>
   );
 };
-
-export default App;
