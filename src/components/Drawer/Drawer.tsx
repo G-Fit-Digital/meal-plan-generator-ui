@@ -17,25 +17,44 @@ export default ({ props }: any) => {
         width: 275,
         backgroundColor: "red",
         height: "100vh",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
         padding: 15
       }}
     >
-      <h1 style={{ marginTop: 0, marginBottom: 0 }}>123</h1>
-      <p
-        onClick={() => actions.toggleDrawer(false)}
+      <div
         style={{
-          color: "#FFF",
-          fontSize: 30,
-          marginTop: 0,
-          marginBottom: 0,
-          cursor: "pointer"
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between"
         }}
       >
-        x
-      </p>
+        <h1 style={{ marginTop: 0, marginBottom: 0 }}>123</h1>
+        <p
+          onClick={() => actions.toggleDrawer(false)}
+          style={{
+            color: "#FFF",
+            fontSize: 30,
+            marginTop: 0,
+            marginBottom: 0,
+            cursor: "pointer"
+          }}
+        >
+          x
+        </p>
+      </div>
+      <div>
+        <p
+          onClick={() => props.history.push("/")}
+          style={{ cursor: "pointer" }}
+        >
+          Add Menu Item
+        </p>
+        <p
+          onClick={() => props.history.push("/generator")}
+          style={{ cursor: "pointer" }}
+        >
+          Meal Generator
+        </p>
+      </div>
     </div>
   );
 };

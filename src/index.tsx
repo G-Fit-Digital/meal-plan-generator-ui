@@ -12,7 +12,6 @@ const store = configureStore();
 
 ReactDOM.render(
   <StoreContext.Provider value={store}>
-    {/* <AddItem /> */}
     <App />
   </StoreContext.Provider>,
   document.getElementById("root")

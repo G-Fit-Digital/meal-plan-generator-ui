@@ -6,6 +6,7 @@ import Sidebar from "react-sidebar";
 import { useMappedState } from "redux-react-hook";
 import Drawer from "./components/Drawer/Drawer";
 import AddItem from "./routes/AddItem/AddItem";
+import DietGenerator from "./routes/DietGenerator/DietGenerator";
 
 const mappedState = (state: any) => ({
   drawerOpen: state.configReducer.drawerOpen
@@ -34,7 +35,8 @@ export default ({ props }: any) => {
                 </React.Fragment>
               )}
             />
-            <Route path="/" component={AddItem} />
+            <Route exact path="/" component={AddItem} />
+            <Route path="/generator" component={DietGenerator} />
           </Sidebar>
         )}
       />
