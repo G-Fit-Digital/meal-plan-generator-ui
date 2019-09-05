@@ -1,5 +1,3 @@
-import { identifier } from "@babel/types";
-
 function calorieMaintenanceCalculation(
   weight,
   fat_percentage,
@@ -15,6 +13,11 @@ function calorieMaintenanceCalculation(
     fat_mass: 0,
     calories: 0,
     protein: 0,
+    protein_cals: 0,
+    carb_calories: 0,
+    carbs_in_grams: 0,
+    fat_calories: 0,
+    fat_in_grams: 0,
   };
   let gender_multiplier = gender === "male" ? 198 : 0;
   //Calculating lean body mass
@@ -58,6 +61,11 @@ function calorieMaintenanceCalculation(
       obj.protein = 3.65 * obj.lean_body_mass;
     }
   }
+  obj.protein_cals = obj.protein * 4;
+  obj.carb_calories = obj.target_daily_calories - obj.protein_cals * 0.55;
+  obj.carbs_in_grams = obj.carb_calories / 4;
+  obj.fat_calories = obj.target_daily_calories - obj.protein_cals * 0.45;
+  obj.fat_in_grams = obj.fat_calories / 9;
   return obj;
 }
 calorieMaintenanceCalculation(200, 13, "male", 35, 1.375, 0.7);
