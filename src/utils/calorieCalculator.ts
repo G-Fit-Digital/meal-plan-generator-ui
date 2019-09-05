@@ -62,10 +62,11 @@ function calorieMaintenanceCalculation(
     }
   }
   obj.protein_cals = obj.protein * 4;
-  obj.carb_calories = obj.target_daily_calories - obj.protein_cals * 0.55;
+  obj.carb_calories = (obj.target_daily_calories - obj.protein_cals) * 0.55;
   obj.carbs_in_grams = obj.carb_calories / 4;
-  obj.fat_calories = obj.target_daily_calories - obj.protein_cals * 0.45;
+  obj.fat_calories = (obj.target_daily_calories - obj.protein_cals) * 0.45;
   obj.fat_in_grams = obj.fat_calories / 9;
   return obj;
 }
-calorieMaintenanceCalculation(200, 13, "male", 35, 1.375, 0.7);
+// calorieMaintenanceCalculation(200, 13, "male", 35, 1.375, 0.7);
+calorieMaintenanceCalculation(235, 22, "male", 38, 1.55, 0.8);
