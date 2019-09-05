@@ -1,4 +1,4 @@
-function calorieMaintenanceCalculation(
+export function calorieMaintenanceCalculation(
   weight,
   fat_percentage,
   gender,
@@ -36,29 +36,29 @@ function calorieMaintenanceCalculation(
   obj.target_daily_calories =
     obj.calories - weight * (target_weekly_loss / 100) * 385;
   //Calculate Protein Requirements
-  if (target_weekly_loss > 0) {
+  if (target_weekly_loss < 0) {
     if (age <= 30) {
-      obj.protein = 1.9 * obj.lean_body_mass;
+      obj.protein = 2.0 * obj.lean_body_mass;
     } else if (age <= 40) {
-      obj.protein = 2.15 * obj.lean_body_mass;
+      obj.protein = 2.3 * obj.lean_body_mass;
     } else if (age <= 50) {
-      obj.protein = 2.45 * obj.lean_body_mass;
+      obj.protein = 2.6 * obj.lean_body_mass;
     } else if (age <= 60) {
-      obj.protein = 3.15 * obj.lean_body_mass;
+      obj.protein = 2.9 * obj.lean_body_mass;
     } else {
-      obj.protein = 3.65 * obj.lean_body_mass;
+      obj.protein = 3.2 * obj.lean_body_mass;
     }
   } else {
     if (age <= 30) {
-      obj.protein = 2.3 * obj.lean_body_mass;
+      obj.protein = 2.4 * obj.lean_body_mass;
     } else if (age <= 40) {
-      obj.protein = 2.6 * obj.lean_body_mass;
+      obj.protein = 2.8 * obj.lean_body_mass;
     } else if (age <= 50) {
-      obj.protein = 2.95 * obj.lean_body_mass;
+      obj.protein = 3.1 * obj.lean_body_mass;
     } else if (age <= 60) {
-      obj.protein = 3.3 * obj.lean_body_mass;
+      obj.protein = 3.5 * obj.lean_body_mass;
     } else {
-      obj.protein = 3.65 * obj.lean_body_mass;
+      obj.protein = 3.8 * obj.lean_body_mass;
     }
   }
   obj.protein_cals = obj.protein * 4;
@@ -69,4 +69,8 @@ function calorieMaintenanceCalculation(
   return obj;
 }
 // calorieMaintenanceCalculation(200, 13, "male", 35, 1.375, 0.7);
-calorieMaintenanceCalculation(235, 22, "male", 38, 1.55, 0.8);
+// calorieMaintenanceCalculation(235, 22, "male", 38, 1.55, 0.8);
+// calorieMaintenanceCalculation(140, 35, "female", 38, 1.55, 0.8);
+// calorieMaintenanceCalculation(181, 12, "male", 23, 1.725, 0.4);
+// calorieMaintenanceCalculation(70, 10, "female", 29, 1.725, -0.8);
+calorieMaintenanceCalculation(135, 25, "female", 21, 1.375, 0.5);
