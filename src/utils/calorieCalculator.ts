@@ -68,9 +68,4 @@ export function calorieMaintenanceCalculation(
   obj.fat_in_grams = obj.fat_calories / 9;
   return obj;
 }
-// calorieMaintenanceCalculation(200, 13, "male", 35, 1.375, 0.7);
-// calorieMaintenanceCalculation(235, 22, "male", 38, 1.55, 0.8);
-// calorieMaintenanceCalculation(140, 35, "female", 38, 1.55, 0.8);
-// calorieMaintenanceCalculation(181, 12, "male", 23, 1.725, 0.4);
-// calorieMaintenanceCalculation(70, 10, "female", 29, 1.725, -0.8);
 calorieMaintenanceCalculation(135, 25, "female", 21, 1.375, 0.5);
