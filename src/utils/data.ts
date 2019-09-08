@@ -30,7 +30,7 @@ export const dietaryRestrictions = [
 ];
 export const foodCategory = [
   { value: "Dairy", label: "Dairy" },
-  { value: "Carbohydrate", label: "Carobhydrate" },
+  { value: "Carbohydrate", label: "Carbohydrate" },
   { value: "Lean Protein", label: "Lean Protein" },
   { value: "Fruit", label: "Fruit" },
   { value: "Vegetable", label: "Vegetable" },
@@ -60,7 +60,7 @@ export const activityLevelOptions = [
 export const aggressivenessOptions = [
   { value: -1.2, label: -1.2 },
   { value: -1.1, label: -1.1 },
-  { value: -1.0, label: -1.0 },
+  { value: -1.0, label: "-1.0 " },
   { value: -0.9, label: -0.9 },
   { value: -0.8, label: -0.8 },
   { value: -0.7, label: -0.7 },
@@ -70,7 +70,7 @@ export const aggressivenessOptions = [
   { value: -0.3, label: -0.3 },
   { value: -0.2, label: -0.2 },
   { value: -0.1, label: -0.1 },
-  { value: 0, label: 0 },
+  { value: 0.0, label: "0.0 " },
   { value: 0.1, label: 0.1 },
   { value: 0.2, label: 0.2 },
   { value: 0.3, label: 0.3 },
@@ -80,7 +80,7 @@ export const aggressivenessOptions = [
   { value: 0.7, label: 0.7 },
   { value: 0.8, label: 0.8 },
   { value: 0.9, label: 0.9 },
-  { value: 1.0, label: 1.0 },
+  { value: 1.0, label: "1.0" },
   { value: 1.1, label: 1.1 },
   { value: 1.2, label: 1.2 },
 ];
