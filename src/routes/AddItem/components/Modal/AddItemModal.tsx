@@ -8,14 +8,15 @@ import {
   nutrients,
   dietaryRestrictions,
   foodCategory,
-  mealCategory
+  mealCategory,
 } from "../../../../utils/data";
 import { lookUpItem } from "../../../../utils/lookupItem";
 import Select from "react-dropdown-select";
 import axios from "axios";
+import styled from "styled-components";
 
 const mappedState = (state: any) => ({
-  item: state.itemReducer.item
+  item: state.itemReducer.item,
 });
 
 export default ({ isOpen }: any) => {
@@ -36,7 +37,7 @@ export default ({ isOpen }: any) => {
   const dispatch = useDispatch();
   const actions = mapDispatchActions(
     {
-      toggleModal
+      toggleModal,
     },
     dispatch
   );
@@ -95,21 +96,22 @@ export default ({ isOpen }: any) => {
         fat,
         carbs,
         calories,
-        fibre
+        fibre,
       })
       .then(res => {
         console.log(res);
+        actions.toggleModal(false);
       });
   }
   return (
     <Modal isOpen={isOpen}>
       <div className="AddItemModal_Container">
         <div>
-          <h1>{item.name}</h1>
+          <h1 className="AddItemModal_NameOfItem">{item.name}</h1>
           <div className="AddItemModal_ServingSize">
             <h3>Serving Size: </h3>
             {response && (
-              <Select
+              <StyledSelect
                 placeholder={
                   response.report.food.nutrients[0].measures[0].label
                 }
@@ -139,7 +141,7 @@ export default ({ isOpen }: any) => {
       <div className="AddItemModal_DropDownContainer">
         <div className="AddItemModal_DropDownWrapper">
           <h3>Dietary Concerns: </h3>
-          <Select
+          <StyledSelect
             multi
             onChange={concern => {
               setDietaryConcerns(concern);
@@ -151,7 +153,7 @@ export default ({ isOpen }: any) => {
         </div>
         <div className="AddItemModal_DropDownWrapper">
           <h3>Food Categories: </h3>
-          <Select
+          <StyledSelect
             multi
             onChange={category => {
               setFoodCategories(category);
@@ -163,7 +165,7 @@ export default ({ isOpen }: any) => {
         </div>
         <div className="AddItemModal_DropDownWrapper">
           <h3>Meal Categories: </h3>
-          <Select
+          <StyledSelect
             multi
             onChange={category => {
               setMealCategories(category);
@@ -180,3 +182,9 @@ export default ({ isOpen }: any) => {
     </Modal>
   );
 };
+
+const StyledSelect = styled(Select)`
+  background-color: #fff;
+  border: 2px #2da8df solid !important;
+  border-radius: 25px !important;
+`;

@@ -7,6 +7,7 @@
 }
 .AddItemModal_Exit {
   cursor: pointer;
+  font-size: 25px;
 }
 .AddItemModal_NutritionRow {
   padding-left: 25px;
@@ -45,4 +46,8 @@
   font-weight: bold;
   border: none;
   border-radius: 25px;
+}
+.AddItemModal_NameOfItem {
+  font-size: 25px;
+  align-self: center;
 }
