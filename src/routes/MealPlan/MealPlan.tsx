@@ -15,7 +15,7 @@ export default ({ props }: any) => {
   return (
     <div>
       {plan.breakfast === undefined
-        ? "No Plan Generated"
+        ? null
         : plan.breakfast.items.map(el => <p>{el.name}</p>)}
     </div>
   );
