@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, CSSProperties } from "react";
 import { calorieMaintenanceCalculation } from "../../utils/calorieCalculator";
 import "./DietGenerator.css";
 import Select from "react-dropdown-select";
@@ -12,6 +12,7 @@ import axios from "axios";
 import { mapDispatchActions } from "../../utils/redux";
 import { useDispatch } from "redux-react-hook";
 import { setMeal } from "../../store/actions/plan";
+import styled from "styled-components";
 
 export default ({ props }) => {
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ export default ({ props }) => {
         placeholder="Client BF (%)"
       />
       <div className="DietGenerator_TextInputField">
-        <Select
+        <StyledSelect
           onChange={sex => {
             if (sex[0]) {
               sex = sex[0].value;
@@ -88,7 +89,7 @@ export default ({ props }) => {
         placeholder="Client Age"
       />
       <div className="DietGenerator_TextInputField">
-        <Select
+        <StyledSelect
           onChange={activity => {
             if (activity[0]) {
               activity = activity[0].value;
@@ -101,7 +102,7 @@ export default ({ props }) => {
         />
       </div>
       <div className="DietGenerator_TextInputField">
-        <Select
+        <StyledSelect
           onChange={agg => {
             if (agg[0]) {
               agg = agg[0].value;
@@ -113,8 +114,8 @@ export default ({ props }) => {
           options={aggressivenessOptions}
         />
       </div>
-      <div className="DietGenerator_TextInputField">
-        <Select
+      <div className="DietGenerator_DropDownField">
+        <StyledSelect
           multi
           onChange={agg => {
             if (agg[0]) {
@@ -131,10 +132,14 @@ export default ({ props }) => {
         onClick={() => {
           generateMeal();
         }}
-        className="DietGenerator_TextInputField"
+        className="DietGenerator_FilledInButton"
       >
         Generate Plan
       </button>
     </div>
   );
 };
+
+const StyledSelect = styled(Select)`
+  border: none !important;
+`;

@@ -1,8 +1,48 @@
 .DietGenerator_TextInputField {
-  height: 48px;
-  margin-bottom: 8px;
-  width: 375px;
+  height: 40px;
+  width: 60vw;
+  font-size: 18px;
+  outline: none;
+  padding: 0px;
+  align-self: flex-start;
+  border: 2.5px #2da8df solid;
+  padding-left: 15px;
+  border-radius: 25px;
+  margin-top: 25px;
+  color: #076694;
+  font-weight: bold;
   align-self: center;
-  margin-top: 8px;
-  padding-left: 7.5px;
+}
+.DietGenerator_FilledInButton {
+  height: 40px;
+  width: 60vw;
+  font-size: 18px;
+  outline: none;
+  padding: 0px;
+  align-self: flex-start;
+  border: 2.5px #2da8df solid;
+  padding-left: 15px;
+  border-radius: 25px;
+  margin-top: 25px;
+  color: #fff;
+  font-weight: bold;
+  align-self: center;
+  background-color: #076694;
+  cursor: pointer;
+}
+.DietGenerator_DropDownField {
+  width: 60vw;
+  font-size: 18px;
+  outline: none;
+  padding: 0px;
+  align-self: flex-start;
+  border: 2.5px #2da8df solid;
+  border-radius: 25px;
+  margin-top: 25px;
+  color: #076694;
+  font-weight: bold;
+  align-self: center;
+}
+.react-dropdown-select-dropdown-handle {
+  display: none !important;
 }
