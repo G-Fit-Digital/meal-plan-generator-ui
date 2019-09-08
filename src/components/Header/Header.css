@@ -1,0 +1,20 @@
+.Header_NavigationBar_Container {
+  height: 60px;
+  width: 100%;
+  background-color: #2da8df;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.Header_NavigationBar_MenuIcon {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  align-self: center;
+  cursor: pointer;
+  margin-left: 25px;
+}
+.Header_NavigationBar_UserText {
+  align-self: center;
+  margin-right: 25px;
+}

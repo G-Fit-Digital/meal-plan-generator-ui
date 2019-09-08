@@ -5,14 +5,17 @@
 }
 .AddItem_TextInput {
   height: 40px;
-  width: 800px;
+  width: 60vw;
   font-size: 18px;
   outline: none;
   padding: 0px;
-  align-self: center;
-  border: 1px black solid;
+  align-self: flex-start;
+  border: 2.5px #2da8df solid;
   padding-left: 15px;
-  border-radius: 6px;
+  border-radius: 25px;
+  margin-top: 25px;
+  color: #076694;
+  font-weight: bold;
 }
 .AddItem_SearchButton_Wrapper {
   position: relative;
@@ -26,4 +29,14 @@
   border-radius: 6px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #076694;
+  font-weight: bold;
+  font-style: italic;
+}
+::-webkit-input {
+  color: #076694;
 }

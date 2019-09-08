@@ -3,6 +3,7 @@ import { mapDispatchActions } from "../../utils/redux";
 import { toggleDrawer } from "../../store/actions/config";
 import { useDispatch } from "redux-react-hook";
 import { FaBars } from "react-icons/fa";
+import "./Header.css";
 export default (props: any) => {
   const dispatch = useDispatch();
   const actions = mapDispatchActions(
@@ -12,32 +13,14 @@ export default (props: any) => {
     dispatch
   );
   return (
-    <div
-      style={{
-        height: 60,
-        width: "100%",
-        backgroundColor: "blue",
-        display: "flex",
-        justifyContent: "space-between",
-        maxWidth: "100vw",
-        overflowX: "hidden",
-      }}
-    >
+    <div className="Header_NavigationBar_Container">
       <div
-        style={{
-          marginTop: 0,
-          marginBottom: 0,
-          alignSelf: "center",
-          cursor: "pointer",
-          marginLeft: 25,
-        }}
+        className="Header_NavigationBar_MenuIcon"
         onClick={() => actions.toggleDrawer(true)}
       >
         <FaBars color={"#FFF"} />
       </div>
-      <p style={{ alignSelf: "center", marginRight: 25 }}>
-        G-Fit Meal Generator
-      </p>
+      <p className="Header_NavigationBar_UserText">G-Fit Meal Generator</p>
     </div>
   );
 };

@@ -21,17 +21,13 @@ const App: React.FC = () => {
   }, [query]);
   return (
     <div className="AddItem_Container">
-      <div>
-        <p>Add Menu Item To Database</p>
-        <input
-          onChange={e => setQuery(e.target.value)}
-          value={query}
-          className="AddItem_TextInput"
-          type="text"
-          placeholder="Search Meal Item By Name"
-        />
-        {/* <button className="AddItem_SearchButton_Wrapper">Search</button> */}
-      </div>
+      <input
+        onChange={e => setQuery(e.target.value)}
+        value={query}
+        className="AddItem_TextInput"
+        type="text"
+        placeholder="Search Meal Item By Name..."
+      />
       <FlatList data={results} />
     </div>
   );

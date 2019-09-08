@@ -8,19 +8,19 @@
   border-radius: 6px;
 }
 .FlatList_ItemContainer {
-  width: 100%;
+  width: 60vw;
   cursor: pointer;
   height: 50px;
-  background-color: #eee;
-  width: 800px;
+  background-color: #dadadb;
   padding: 15px;
   border-radius: 15px;
   margin-top: 10px;
 }
 :hover.FlatList_ItemContainer {
   background-color: #ccc;
-  border: 1.5px black solid;
+  border: 2px #2da8df solid;
 }
 .FlatList_ItemText {
   font-weight: bold;
+  color: #076694;
 }
