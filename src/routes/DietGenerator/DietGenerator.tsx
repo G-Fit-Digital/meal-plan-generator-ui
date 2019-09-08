@@ -9,8 +9,13 @@ import {
   dietaryRestrictions,
 } from "../../utils/data";
 import axios from "axios";
+import { mapDispatchActions } from "../../utils/redux";
+import { useDispatch } from "redux-react-hook";
+import { setMeal } from "../../store/actions/plan";
 
-export default () => {
+export default ({ props }) => {
+  const dispatch = useDispatch();
+  const actions = mapDispatchActions({ setMeal }, dispatch);
   const [clientName, setClientName] = useState("");
   const [weight, setWeight] = useState(0.0);
   const [bodyfat, setBodyFat] = useState(0.0);
@@ -38,6 +43,8 @@ export default () => {
         }
       )
       .then(res => {
+        actions.setMeal(res.data);
+        props.history.push("/plan");
         console.log(res);
       });
   }

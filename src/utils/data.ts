@@ -84,11 +84,3 @@ export const aggressivenessOptions = [
   { value: 1.1, label: 1.1 },
   { value: 1.2, label: 1.2 },
 ];
-// export const dietaryRestrictions = [
-//   { value: "Vegetarian", label: "Vegetarian" },
-//   { value: "vegan", label: "Vegan" },
-//   { value: "dairy", label: "Dairy" },
-//   { value: "gluten", label: "Gluten" },
-//   { value: "nuts", label: "Nuts" },
-//   { value: "allergy", label: "Allergy" },
-// ];

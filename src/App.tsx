@@ -7,9 +7,10 @@ import { useMappedState } from "redux-react-hook";
 import Drawer from "./components/Drawer/Drawer";
 import AddItem from "./routes/AddItem/AddItem";
 import DietGenerator from "./routes/DietGenerator/DietGenerator";
+import MealPlan from "./routes/MealPlan/MealPlan";
 
 const mappedState = (state: any) => ({
-  drawerOpen: state.configReducer.drawerOpen
+  drawerOpen: state.configReducer.drawerOpen,
 });
 
 export default ({ props }: any) => {
@@ -36,7 +37,14 @@ export default ({ props }: any) => {
               )}
             />
             <Route exact path="/" component={AddItem} />
-            <Route path="/generator" component={DietGenerator} />
+            <Route
+              path="/generator"
+              component={(props: Object) => <DietGenerator props={props} />}
+            />
+            <Route
+              path="/plan"
+              component={(props: Object) => <MealPlan props={props} />}
+            />
           </Sidebar>
         )}
       />
