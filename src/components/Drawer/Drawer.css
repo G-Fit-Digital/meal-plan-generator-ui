@@ -28,3 +28,21 @@
   margin-bottom: 0px;
   cursor: pointer;
 }
+.Drawer_ProfileImage {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  align-self: "center";
+}
+.Drawer_Option_Container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px #000 solid;
+}
+.Drawer_Option_Text {
+  cursor: pointer;
+  color: #fff;
+}
+:hover.Drawer_Option_Text {
+  font-weight: bold;
+}

@@ -18,13 +18,7 @@ export default ({ props }: any) => {
         <div style={{ flexDirection: "row", display: "flex" }}>
           <img
             src={require("../../assets/image_placeholder.png")}
-            style={{
-              backgroundColor: "#000",
-              height: 50,
-              width: 50,
-              borderRadius: 25,
-              alignSelf: "center",
-            }}
+            className="Drawer_ProfileImage"
           />
           <h1 className="Drawer_NameText">Grant Reid</h1>
         </div>
@@ -35,19 +29,17 @@ export default ({ props }: any) => {
           x
         </p>
       </div>
-      <div>
-        <p
-          onClick={() => props.history.push("/")}
-          style={{ cursor: "pointer" }}
-        >
-          Add Menu Item
-        </p>
-        <p
-          onClick={() => props.history.push("/generator")}
-          style={{ cursor: "pointer" }}
-        >
-          Meal Generator
-        </p>
+      <div
+        onClick={() => props.history.push("/")}
+        className="Drawer_Option_Container"
+      >
+        <p className="Drawer_Option_Text">Add Menu Item</p>
+      </div>
+      <div
+        onClick={() => props.history.push("/generator")}
+        className="Drawer_Option_Container"
+      >
+        <p className="Drawer_Option_Text">Meal Generator</p>
       </div>
     </div>
   );
