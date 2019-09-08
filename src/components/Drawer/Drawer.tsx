@@ -30,13 +30,19 @@ export default ({ props }: any) => {
         </p>
       </div>
       <div
-        onClick={() => props.history.push("/")}
+        onClick={() => {
+          props.history.push("/");
+          actions.toggleDrawer(false);
+        }}
         className="Drawer_Option_Container"
       >
         <p className="Drawer_Option_Text">Add Menu Item</p>
       </div>
       <div
-        onClick={() => props.history.push("/generator")}
+        onClick={() => {
+          props.history.push("/generator");
+          actions.toggleDrawer(false);
+        }}
         className="Drawer_Option_Container"
       >
         <p className="Drawer_Option_Text">Meal Generator</p>
