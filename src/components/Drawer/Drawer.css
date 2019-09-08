@@ -1,0 +1,30 @@
+.Drawer_Content_Container {
+  width: 275px;
+  background-color: #076694;
+  height: 100vh;
+  padding: 15px;
+}
+.Drawer_ProfileHeader_Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 75px;
+  border-bottom: 1px black solid;
+  width: 275px;
+  padding-bottom: 10px;
+}
+.Drawer_NameText {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  align-self: center;
+  font-size: 22px;
+  margin-left: 5px;
+  color: #fff;
+}
+.Drawer_ExitIcon {
+  color: #fff;
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}

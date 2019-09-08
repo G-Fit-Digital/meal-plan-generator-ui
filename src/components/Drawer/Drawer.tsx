@@ -2,41 +2,35 @@ import React from "react";
 import { mapDispatchActions } from "../../utils/redux";
 import { toggleDrawer } from "../../store/actions/config";
 import { useDispatch } from "redux-react-hook";
+import "./Drawer.css";
 
 export default ({ props }: any) => {
   const dispatch = useDispatch();
   const actions = mapDispatchActions(
     {
-      toggleDrawer
+      toggleDrawer,
     },
     dispatch
   );
   return (
-    <div
-      style={{
-        width: 275,
-        backgroundColor: "red",
-        height: "100vh",
-        padding: 15
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between"
-        }}
-      >
-        <h1 style={{ marginTop: 0, marginBottom: 0 }}>123</h1>
+    <div className="Drawer_Content_Container">
+      <div className="Drawer_ProfileHeader_Container">
+        <div style={{ flexDirection: "row", display: "flex" }}>
+          <img
+            src={require("../../assets/image_placeholder.png")}
+            style={{
+              backgroundColor: "#000",
+              height: 50,
+              width: 50,
+              borderRadius: 25,
+              alignSelf: "center",
+            }}
+          />
+          <h1 className="Drawer_NameText">Grant Reid</h1>
+        </div>
         <p
           onClick={() => actions.toggleDrawer(false)}
-          style={{
-            color: "#FFF",
-            fontSize: 30,
-            marginTop: 0,
-            marginBottom: 0,
-            cursor: "pointer"
-          }}
+          className="Drawer_ExitIcon"
         >
           x
         </p>
