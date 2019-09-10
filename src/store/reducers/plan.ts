@@ -1,4 +1,4 @@
-import { SET_MEAL } from "../types/plan";
+import { SET_MEAL, REMOVE_ITEM } from "../types/plan";
 
 export const initialState = {
   plan: {},
@@ -11,6 +11,9 @@ export default function planReducer(state = initialState, action) {
         ...state,
         plan: action.payload,
       };
+    }
+    case REMOVE_ITEM: {
+      return { ...state };
     }
     default:
       return {
