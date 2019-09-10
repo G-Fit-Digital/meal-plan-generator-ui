@@ -46,7 +46,6 @@ export default ({ props }) => {
       .then(res => {
         actions.setMeal(res.data);
         props.history.push("/plan");
-        console.log(res);
       });
   }
   return (
