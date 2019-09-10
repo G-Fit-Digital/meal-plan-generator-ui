@@ -3,15 +3,12 @@
 }
 .MealPlan_NameOfFoodText {
   color: #076694;
-  font-weight: normal;
+  font-weight: bold;
+  width: 15%;
 }
 .MealPlan_MealNameText {
   font-size: 25px;
   font-weight: bold;
-}
-:hover.MealPlan_NameOfFoodText {
-  font-weight: bold;
-  cursor: pointer;
 }
 .MealPlan_ItemContainer {
   border-bottom: 1.75px #eee solid;
@@ -47,4 +44,13 @@
 :hover.MealPlan_DeleteIcon {
   color: #fff;
   padding: 25px;
+}
+.MealPlan_NutrientValue {
+  width: 10%;
+  text-align: center;
+}
+.MealPlan_NutrientName {
+  width: 15%;
+  text-align: center;
+  font-weight: bold;
 }
