@@ -8,16 +8,16 @@ export default ({ plan }: any) => {
       {plan.breakfast ? (
         <>
           <p className="MealPlan_NutrientName">
-            {plan.breakfast.calories.toFixed(2)}
+            {plan.breakfast.calories.toFixed(0)}
           </p>
           <p className="MealPlan_NutrientName">
-            {plan.breakfast.protein.toFixed(2)}
+            {plan.breakfast.protein.toFixed(0)}
           </p>
           <p className="MealPlan_NutrientName">
-            {plan.breakfast.carbs.toFixed(2)}
+            {plan.breakfast.carbs.toFixed(0)}
           </p>
           <p className="MealPlan_NutrientName">
-            {plan.breakfast.fat.toFixed(2)}
+            {plan.breakfast.fat.toFixed(0)}
           </p>
         </>
       ) : null}
