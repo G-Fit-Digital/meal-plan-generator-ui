@@ -6,9 +6,9 @@ export function setMeal(meal: Object) {
     payload: meal,
   };
 }
-export function removeItem({ name, plan }) {
+export function removeItem(plan) {
   return {
     type: REMOVE_ITEM,
-    payload: { name, plan },
+    plan,
   };
 }

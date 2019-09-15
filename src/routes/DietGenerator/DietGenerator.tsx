@@ -35,10 +35,10 @@ export default ({ props }) => {
       aggressiveness
     );
     axios
-      .get(
+      .post(
         `http://localhost:3000/api/meal/calories/${response.target_daily_calories}/protein/${response.protein}/carb/${response.carbs_in_grams}/fat/${response.fat_in_grams}`,
         {
-          params: {
+          body: {
             restrictions: restrictions,
           },
         }
@@ -121,6 +121,7 @@ export default ({ props }) => {
               agg = agg[0].value;
             }
             setRestrictions(agg);
+            console.log(restrictions);
           }}
           placeholder="Dietary Restrictions"
           values={[]}

@@ -1,7 +1,7 @@
 import { SET_MEAL, REMOVE_ITEM } from "../types/plan";
 
 export const initialState = {
-  plan: {},
+  plan: null,
 };
 
 export default function planReducer(state = initialState, action) {
@@ -13,7 +13,10 @@ export default function planReducer(state = initialState, action) {
       };
     }
     case REMOVE_ITEM: {
-      return { ...state };
+      return {
+        ...state,
+        plan: action.plan,
+      };
     }
     default:
       return {

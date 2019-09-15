@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./MealPlan.css";
 import { mapDispatchActions } from "../../utils/redux";
 import { useDispatch, useMappedState } from "redux-react-hook";
@@ -8,6 +8,7 @@ const mappedState = (state: any) => ({
 });
 export default (item: any) => {
   const { plan } = useMappedState(mappedState);
+  const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
   const actions = mapDispatchActions({ removeItem }, dispatch);
   return (
@@ -18,13 +19,12 @@ export default (item: any) => {
       <p className="MealPlan_NutrientValue">{item.item.carbs}</p>
       <p className="MealPlan_NutrientValue">{item.item.fat}</p>
       <div
-        // onClick={() => actions.removeItem(item.item.name)}
         onClick={() => {
-          for (var i = 0; i < plan.breakfast.items.length; i++) {
-            if (item.item.name === plan.breakfast.items[i].name) {
-              console.log(i);
-            }
-          }
+          plan.breakfast.items.filter(
+            (val, index) => val.name !== item.item.name
+          );
+          actions.removeItem(plan);
+          setToggle(!toggle);
         }}
         className="MealPlan_DeleteContainer"
       >
