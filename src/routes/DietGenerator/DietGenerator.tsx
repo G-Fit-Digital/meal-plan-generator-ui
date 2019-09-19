@@ -44,7 +44,7 @@ export default ({ props }) => {
         }
       )
       .then(res => {
-        actions.setMeal(res.data);
+        localStorage.setItem("meal_id", res.data._id);
         props.history.push("/plan");
       });
   }

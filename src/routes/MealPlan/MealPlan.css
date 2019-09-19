@@ -16,6 +16,15 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.MealPlan_ItemContainer_IsMeal {
+  border-bottom: 1.75px #eee solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #076694;
+  margin-left: -15px;
+  margin-right: -15px;
+}
 .MealPlan_DeleteContainer {
   height: 30px;
   width: 30px;
@@ -53,4 +62,17 @@
   width: 15%;
   text-align: center;
   font-weight: bold;
+}
+.MealPlan_NutrientName_MealTotal {
+  width: 15%;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+.MealPlan_Totals {
+  width: 15%;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 15px;
+  color: #fff;
 }
