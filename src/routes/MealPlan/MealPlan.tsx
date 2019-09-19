@@ -38,7 +38,13 @@ export default ({ props }: any) => {
               {el.meal.substring(0, 1).toUpperCase() + el.meal.substring(1)}
             </p>
             {el.items.map(ex => (
-              <Item item={ex} />
+              <span
+                onClick={() => {
+                  localStorage.setItem("meal_meal_id", el._id);
+                }}
+              >
+                <Item fetchData={() => fetchData()} item={ex} />
+              </span>
             ))}
           </>
           <FooterTotals meal={el} isMealTotal plan={meal} />

@@ -7,10 +7,6 @@ interface FooterProp {
 }
 
 export default ({ plan, isMealTotal, meal }: FooterProp) => {
-  useEffect(() => {
-    console.log("MEAL");
-    console.log(meal);
-  });
   function getVal(macro) {
     let val = 0;
     for (var i = 0; i < plan.meal.length; i++) {
