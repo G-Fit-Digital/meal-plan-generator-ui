@@ -18,7 +18,7 @@ export default ({ props }: any) => {
     fetchData();
   }, []);
   return (
-    <div className="MealPlan_Container">
+    <div onClick={() => fetchData()} className="MealPlan_Container">
       <Header />
       {meal.meal.map(el => (
         <>
@@ -37,15 +37,7 @@ export default ({ props }: any) => {
             >
               {el.meal.substring(0, 1).toUpperCase() + el.meal.substring(1)}
             </p>
-            {el.items.map(ex => (
-              <span
-                onClick={() => {
-                  localStorage.setItem("meal_meal_id", el._id);
-                }}
-              >
-                <Item fetchData={() => fetchData()} item={ex} />
-              </span>
-            ))}
+            {meal.meal && el.items.map(ex => <Item meal={el._id} item={ex} />)}
           </>
           <FooterTotals meal={el} isMealTotal plan={meal} />
         </>
