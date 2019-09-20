@@ -4,6 +4,7 @@ import Item from "./Item";
 import Header from "./Header";
 import FooterTotals from "./FooterTotals";
 import axios from "axios";
+import AddItemInput from "./AddItemInput";
 
 export default ({ props }: any) => {
   const meal_id = localStorage.getItem("meal_id");
@@ -18,7 +19,7 @@ export default ({ props }: any) => {
     fetchData();
   }, []);
   return (
-    <div onClick={() => fetchData()} className="MealPlan_Container">
+    <div className="MealPlan_Container">
       <Header />
       {meal.meal.map(el => (
         <>
@@ -37,7 +38,11 @@ export default ({ props }: any) => {
             >
               {el.meal.substring(0, 1).toUpperCase() + el.meal.substring(1)}
             </p>
-            {meal.meal && el.items.map(ex => <Item meal={el._id} item={ex} />)}
+            {meal.meal &&
+              el.items.map(ex => (
+                <Item meal={el._id} fetchData={fetchData} item={ex} />
+              ))}
+            <AddItemInput meal={el._id} fetchData={fetchData} />
           </>
           <FooterTotals meal={el} isMealTotal plan={meal} />
         </>

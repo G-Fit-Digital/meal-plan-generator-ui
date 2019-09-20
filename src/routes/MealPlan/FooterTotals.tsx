@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MealPlan.css";
 interface FooterProp {
   plan: any;
@@ -7,25 +7,23 @@ interface FooterProp {
 }
 
 export default ({ plan, isMealTotal, meal }: FooterProp) => {
-  function getVal(macro) {
-    let val = 0;
+  let calories,
+    protein,
+    carbs,
+    fat = 0;
+  function getVal() {
     for (var i = 0; i < plan.meal.length; i++) {
-      switch (macro) {
-        case "calories":
-          val += plan.meal[i].calories;
-          break;
-        case "protein":
-          val += plan.meal[i].protein;
-          break;
-        case "carbs":
-          val += plan.meal[i].carbs;
-          break;
-        case "fat":
-          val += plan.meal[i].fat;
-      }
+      calories += plan.meal[i].calories;
+      protein += plan.meal[i].protein;
+      carbs += plan.meal[i].carbs;
+      fat += plan.meal[i].fat;
     }
-    return val.toFixed(0);
+    // return val.toFixed(0);
   }
+  useEffect(() => {
+    console.log(meal);
+    getVal();
+  }, [plan]);
   return (
     <div
       className={
@@ -42,7 +40,9 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
             : "MealPlan_NutrientName"
         }
       >
-        {isMealTotal ? meal.calories.toFixed(0) : getVal("calories")}
+        {isMealTotal
+          ? meal.calories.toFixed(0)
+          : calories && calories.toFixed(0)}
       </p>
       <p
         className={
@@ -51,7 +51,7 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
             : "MealPlan_NutrientName"
         }
       >
-        {isMealTotal ? meal.protein.toFixed(0) : getVal("protein")}
+        {isMealTotal ? meal.protein.toFixed(0) : protein && protein.toFixed(0)}
       </p>
       <p
         className={
@@ -60,7 +60,7 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
             : "MealPlan_NutrientName"
         }
       >
-        {isMealTotal ? meal.carbs.toFixed(0) : getVal("carbs")}
+        {isMealTotal ? meal.carbs.toFixed(0) : carbs && carbs.toFixed(0)}
       </p>
       <p
         className={
@@ -69,7 +69,7 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
             : "MealPlan_NutrientName"
         }
       >
-        {isMealTotal ? meal.fat.toFixed(0) : getVal("fat")}
+        {isMealTotal ? meal.fat.toFixed(0) : fat && fat.toFixed(0)}
       </p>
       <div>
         <p style={{ display: "none" }}></p>

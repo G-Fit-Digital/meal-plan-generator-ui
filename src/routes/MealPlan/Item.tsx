@@ -4,9 +4,10 @@ import axios from "axios";
 interface ItemProps {
   item: any;
   meal: any;
+  fetchData: any;
 }
 
-export default ({ item, meal }) => {
+export default ({ item, meal, fetchData }) => {
   let meal_id;
   useEffect(() => {
     meal_id = localStorage.getItem("meal_id");
@@ -21,10 +22,13 @@ export default ({ item, meal }) => {
       <p className="MealPlan_NutrientValue">{item.fat}</p>
       <div
         onClick={() => {
-          axios.delete(
-            `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
-          );
-          setToggle(!toggle);
+          axios
+            .delete(
+              `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
+            )
+            .then(() => {
+              fetchData();
+            });
         }}
         className="MealPlan_DeleteContainer"
       >
