@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./MealPlan.css";
 import axios from "axios";
 interface ItemProps {
@@ -7,14 +7,22 @@ interface ItemProps {
   fetchData: any;
 }
 
-export default ({ item, meal, fetchData }) => {
+export default ({ item, meal, fetchData }: ItemProps) => {
+  function deleteItem() {
+    axios
+      .delete(
+        `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
+      )
+      .then(() => {
+        fetchData();
+      });
+  }
   let meal_id;
   useEffect(() => {
     meal_id = localStorage.getItem("meal_id");
   });
-  const [toggle, setToggle] = useState(false);
   return (
-    <div className="MealPlan_ItemContainer" onClick={() => console.log(meal)}>
+    <div className="MealPlan_ItemContainer">
       <p className="MealPlan_NameOfFoodText">{item.name}</p>
       <p className="MealPlan_NutrientValue">{item.calories}</p>
       <p className="MealPlan_NutrientValue">{item.protein}</p>
@@ -22,13 +30,7 @@ export default ({ item, meal, fetchData }) => {
       <p className="MealPlan_NutrientValue">{item.fat}</p>
       <div
         onClick={() => {
-          axios
-            .delete(
-              `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
-            )
-            .then(() => {
-              fetchData();
-            });
+          deleteItem();
         }}
         className="MealPlan_DeleteContainer"
       >

@@ -28,7 +28,7 @@
 .MealPlan_DeleteContainer {
   height: 30px;
   width: 30px;
-  border: 2px red solid;
+  /* border: 2px red solid; */
   border-radius: 50%;
   align-self: center;
   display: flex;
@@ -36,13 +36,8 @@
   justify-content: center;
   cursor: pointer;
 }
-:hover.MealPlan_DeleteContainer {
-  background-color: red;
-  border: 2px #eee solid;
-  color: grey;
-}
 .MealPlan_DeleteIcon {
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
   align-self: center;
   margin-top: 0px;
@@ -51,8 +46,8 @@
   color: red;
 }
 :hover.MealPlan_DeleteIcon {
-  color: #fff;
   padding: 25px;
+  font-weight: bold;
 }
 .MealPlan_NutrientValue {
   width: 10%;
@@ -107,6 +102,10 @@
 }
 .MealPlan_AddItemText {
   cursor: pointer;
+}
+:hover.MealPlan_AddItemText {
+  font-weight: bold;
+  text-decoration: underline;
 }
 .MealPlan_MealName {
   font-weight: bol;
