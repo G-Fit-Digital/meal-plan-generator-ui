@@ -5,6 +5,8 @@ import Header from "./Header";
 import FooterTotals from "./FooterTotals";
 import axios from "axios";
 import AddItemInput from "./AddItemInput";
+import html2canvas from "html2canvas";
+import * as jsPDF from "jspdf";
 
 export default ({ props }: any) => {
   const meal_id = localStorage.getItem("meal_id");
@@ -15,27 +17,32 @@ export default ({ props }: any) => {
       console.log(res.data);
     });
   }
+  function generatePDF() {
+    const input = document.getElementById("ToPrint");
+    html2canvas(input).then(canvas => {
+      const imageData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(
+        imageData,
+        "PNG",
+        0,
+        0,
+        pdf.internal.pageSize.getWidth(),
+        pdf.internal.pageSize.getHeight()
+      );
+      pdf.save("download.pdf");
+    });
+  }
   useEffect(() => {
     fetchData();
   }, []);
   return (
-    <div className="MealPlan_Container">
+    <div id="ToPrint" className="MealPlan_Container">
       <Header />
       {meal.meal.map(el => (
         <>
           <>
-            <p
-              style={{
-                fontWeight: "bold",
-                backgroundColor: "#076694",
-                padding: 7.5,
-                paddingLeft: 15,
-                marginLeft: -15,
-                marginRight: -15,
-                color: "#FFF",
-                marginTop: 0,
-              }}
-            >
+            <p className="MealPlan_MealName">
               {el.meal.substring(0, 1).toUpperCase() + el.meal.substring(1)}
             </p>
             {meal.meal &&
@@ -48,6 +55,7 @@ export default ({ props }: any) => {
         </>
       ))}
       <FooterTotals plan={meal} />
+      <button onClick={() => generatePDF()}>Generate PDF</button>
     </div>
   );
 };

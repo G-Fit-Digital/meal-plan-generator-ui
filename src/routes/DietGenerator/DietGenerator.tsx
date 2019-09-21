@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from "react";
+import React, { useState } from "react";
 import { calorieMaintenanceCalculation } from "../../utils/calorieCalculator";
 import "./DietGenerator.css";
 import Select from "react-dropdown-select";
@@ -7,6 +7,7 @@ import {
   activityLevelOptions,
   aggressivenessOptions,
   dietaryRestrictions,
+  numberOfSnacks,
 } from "../../utils/data";
 import axios from "axios";
 import { mapDispatchActions } from "../../utils/redux";
@@ -25,6 +26,7 @@ export default ({ props }) => {
   const [activityLevel, setActivityLevel] = useState(0.0);
   const [aggressiveness, setAggressiveness] = useState(0.0);
   const [restrictions, setRestrictions] = useState([]);
+  const [numberMeals, setNumberMeals] = useState(0);
   function generateMeal() {
     let response = calorieMaintenanceCalculation(
       weight,
@@ -38,8 +40,9 @@ export default ({ props }) => {
       .post(
         `http://localhost:3000/api/meal/calories/${response.target_daily_calories}/protein/${response.protein}/carb/${response.carbs_in_grams}/fat/${response.fat_in_grams}`,
         {
-          body: {
+          data: {
             restrictions: restrictions,
+            numberMeals: numberMeals,
           },
         }
       )
@@ -126,6 +129,20 @@ export default ({ props }) => {
           placeholder="Dietary Restrictions"
           values={[]}
           options={dietaryRestrictions}
+        />
+      </div>
+      <div className="DietGenerator_DropDownField">
+        <StyledSelect
+          onChange={agg => {
+            if (agg[0]) {
+              agg = agg[0].value;
+            }
+            setNumberMeals(agg);
+            console.log(numberMeals);
+          }}
+          placeholder="Number Of Snacks"
+          values={[]}
+          options={numberOfSnacks}
         />
       </div>
       <button

@@ -108,3 +108,13 @@
 .MealPlan_AddItemText {
   cursor: pointer;
 }
+.MealPlan_MealName {
+  font-weight: bol;
+  background-color: #076694;
+  padding: 7.5px;
+  padding-left: 15px;
+  margin-left: -15px;
+  margin-right: -15px;
+  color: #fff;
+  margin-top: 0px;
+}
