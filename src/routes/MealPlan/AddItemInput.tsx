@@ -46,6 +46,7 @@ export default ({ meal, fetchData }) => {
         setCarbs={setCarbs}
         setFat={setFat}
         results={results}
+        setResults={setResults}
       />
       <p className="MealPlan_NutrientName">{calories}</p>
       <p className="MealPlan_NutrientName">{protein}</p>

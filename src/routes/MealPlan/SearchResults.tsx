@@ -7,6 +7,7 @@ export default ({
   setCarbs,
   setFat,
   setId,
+  setResults,
 }: any) => {
   return (
     <>
@@ -17,7 +18,7 @@ export default ({
         {results.map(el => (
           <p
             onClick={() => {
-              console.log(el);
+              setResults([]);
               setId(el._id);
               setCalories(el.calories);
               setProtein(el.protein);
