@@ -7,15 +7,21 @@ export default ({ props }) => {
   const [meals, setMeals] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:3000/api/meal").then(res => {
-      console.log(res.data);
       setMeals(res.data);
     });
   }, []);
+  function navigate(id) {
+    localStorage.setItem("meal_id", id);
+    props.history.push("/plan");
+  }
   return (
     <React.Fragment>
       {meals &&
         meals.map(el => (
-          <div className="MealContainer_SingleMeal">
+          <div
+            onClick={() => navigate(el._id)}
+            className="MealContainer_SingleMeal"
+          >
             <p>{el.client_name}</p>
             <p>{moment(el.created_on).format("MMMM Do YYYY h:mm:ss a")}</p>
           </div>
