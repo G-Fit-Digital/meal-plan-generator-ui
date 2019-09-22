@@ -45,11 +45,11 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
         return carbs.toFixed(0);
     }
   };
-  let target_calories = 0;
-  let target_protein = 0;
-  let target_carbs = 0;
-  let target_fat = 0;
   const getTargetTotal = macro => {
+    let target_calories = 0;
+    let target_protein = 0;
+    let target_carbs = 0;
+    let target_fat = 0;
     switch (macro) {
       case "calories":
         for (var i = 0; i < plan.meal.length; i++) {
@@ -98,7 +98,14 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
             {isMealTotal ? (
               "(" + calorie_differential + ")"
             ) : (
-              <span style={{ color: "#000" }}>
+              <span
+                style={{
+                  color:
+                    parseInt(getTargetTotal("calories")) > 0
+                      ? "#61ab4a"
+                      : "#d6324d",
+                }}
+              >
                 ({getTargetTotal("calories")})
               </span>
             )}
@@ -120,7 +127,16 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
           {isMealTotal ? (
             "(" + protein_differential + ")"
           ) : (
-            <span style={{ color: "#000" }}>({getTargetTotal("protein")})</span>
+            <span
+              style={{
+                color:
+                  parseInt(getTargetTotal("protein")) > 0
+                    ? "#61ab4a"
+                    : "#d6324d",
+              }}
+            >
+              ({getTargetTotal("protein")})
+            </span>
           )}
         </span>
       </p>
@@ -137,7 +153,14 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
           {isMealTotal ? (
             "(" + carb_differential + ")"
           ) : (
-            <span style={{ color: "#000" }}>({getTargetTotal("carbs")})</span>
+            <span
+              style={{
+                color:
+                  parseInt(getTargetTotal("carbs")) > 0 ? "#61ab4a" : "#d6324d",
+              }}
+            >
+              ({getTargetTotal("carbs")})
+            </span>
           )}
         </span>
       </p>
@@ -154,7 +177,14 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
           {isMealTotal ? (
             "(" + fat_differential + ")"
           ) : (
-            <span style={{ color: "#000" }}>({getTargetTotal("fat")})</span>
+            <span
+              style={{
+                color:
+                  parseInt(getTargetTotal("fat")) > 0 ? "#61ab4a" : "#d6324d",
+              }}
+            >
+              ({getTargetTotal("fat")})
+            </span>
           )}
         </span>
       </p>
