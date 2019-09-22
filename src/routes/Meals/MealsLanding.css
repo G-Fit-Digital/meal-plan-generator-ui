@@ -1,0 +1,13 @@
+.MealContainer_SingleMeal {
+  background-color: red;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border: 1px black solid;
+  margin: 15px;
+  border-radius: 5px;
+}

@@ -43,6 +43,7 @@ export default ({ props }) => {
           data: {
             restrictions: restrictions,
             numberMeals: numberMeals,
+            client_name: clientName,
           },
         }
       )

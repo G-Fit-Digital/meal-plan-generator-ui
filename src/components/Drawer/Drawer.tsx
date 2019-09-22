@@ -12,6 +12,10 @@ export default ({ props }: any) => {
     },
     dispatch
   );
+  function navigate(route) {
+    props.history.push(route);
+    actions.toggleDrawer(false);
+  }
   return (
     <div className="Drawer_Content_Container">
       <div className="Drawer_ProfileHeader_Container">
@@ -31,8 +35,7 @@ export default ({ props }: any) => {
       </div>
       <div
         onClick={() => {
-          props.history.push("/");
-          actions.toggleDrawer(false);
+          navigate("/");
         }}
         className="Drawer_Option_Container"
       >
@@ -40,12 +43,19 @@ export default ({ props }: any) => {
       </div>
       <div
         onClick={() => {
-          props.history.push("/generator");
-          actions.toggleDrawer(false);
+          navigate("/generator");
         }}
         className="Drawer_Option_Container"
       >
         <p className="Drawer_Option_Text">Meal Generator</p>
+      </div>
+      <div
+        onClick={() => {
+          navigate("/meal");
+        }}
+        className="Drawer_Option_Container"
+      >
+        <p className="Drawer_Option_Text">Meals</p>
       </div>
     </div>
   );

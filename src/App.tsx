@@ -8,6 +8,7 @@ import Drawer from "./components/Drawer/Drawer";
 import AddItem from "./routes/AddItem/AddItem";
 import DietGenerator from "./routes/DietGenerator/DietGenerator";
 import MealPlan from "./routes/MealPlan/MealPlan";
+import MealsLanding from "./routes/Meals/MealsLanding";
 
 const mappedState = (state: any) => ({
   drawerOpen: state.configReducer.drawerOpen,
@@ -44,6 +45,10 @@ export default ({ props }: any) => {
             <Route
               path="/plan"
               component={(props: Object) => <MealPlan props={props} />}
+            />
+            <Route
+              path="/meal"
+              component={(props: Object) => <MealsLanding props={props} />}
             />
           </Sidebar>
         )}
