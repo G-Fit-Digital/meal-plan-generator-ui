@@ -7,6 +7,7 @@ import axios from "axios";
 import AddItemInput from "./AddItemInput";
 import html2canvas from "html2canvas";
 import * as jsPDF from "jspdf";
+import Meal from "./Meal";
 
 export default ({ props }: any) => {
   const meal_id = localStorage.getItem("meal_id");
@@ -14,7 +15,6 @@ export default ({ props }: any) => {
   async function fetchData() {
     await axios.get(`http://localhost:3000/api/meal/${meal_id}`).then(res => {
       setMeal(res.data);
-      console.log(res.data);
     });
   }
   function generatePDF() {
@@ -40,19 +40,7 @@ export default ({ props }: any) => {
     <div id="ToPrint" className="MealPlan_Container">
       <Header />
       {meal.meal.map(el => (
-        <>
-          <>
-            <p className="MealPlan_MealName">
-              {el.meal.substring(0, 1).toUpperCase() + el.meal.substring(1)}
-            </p>
-            {meal.meal &&
-              el.items.map(ex => (
-                <Item meal={el._id} fetchData={fetchData} item={ex} />
-              ))}
-            <AddItemInput meal={el._id} fetchData={fetchData} />
-          </>
-          <FooterTotals meal={el} isMealTotal plan={meal} />
-        </>
+        <Meal el={el} meal={meal} fetchData={fetchData} />
       ))}
       <FooterTotals plan={meal} />
       <button onClick={() => generatePDF()}>Generate PDF</button>
