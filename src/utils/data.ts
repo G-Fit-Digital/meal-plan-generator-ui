@@ -85,6 +85,8 @@ export const aggressivenessOptions = [
   { value: 1.2, label: 1.2 },
 ];
 export const numberOfSnacks = [
+  { value: 0, label: "Zero" },
   { value: 1, label: "One" },
   { value: 2, label: "Two" },
+  { value: 3, label: "Three" },
 ];

@@ -66,6 +66,8 @@ export function calorieMaintenanceCalculation(
   obj.carbs_in_grams = obj.carb_calories / 4;
   obj.fat_calories = (obj.target_daily_calories - obj.protein_cals) * 0.45;
   obj.fat_in_grams = obj.fat_calories / 9;
+  console.log("OBJECT");
+  console.log(obj);
   return obj;
 }
 calorieMaintenanceCalculation(135, 25, "female", 21, 1.375, 0.5);

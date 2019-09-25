@@ -44,6 +44,7 @@ export default ({ props }) => {
             restrictions: restrictions,
             numberMeals: numberMeals,
             client_name: clientName,
+            weight: weight,
           },
         }
       )
