@@ -24,7 +24,6 @@ export default ({ el, meal, fetchData }) => {
       }
     }
     setFinalArr(arr);
-    console.log(arr);
   });
   return (
     <React.Fragment>

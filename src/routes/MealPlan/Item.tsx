@@ -49,6 +49,14 @@ export default ({ item, meal, fetchData, counts }: ItemProps) => {
           >
             -
           </p>
+          {/* <p
+            onClick={() => {
+              addItem();
+            }}
+            className="MealPlan_DeleteIcon"
+          >
+            +
+          </p> */}
         </div>
       </div>
     </div>
