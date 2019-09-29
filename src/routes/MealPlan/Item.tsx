@@ -5,9 +5,14 @@ interface ItemProps {
   item: any;
   meal: any;
   fetchData: any;
+  counts?: any;
 }
 
-export default ({ item, meal, fetchData }: ItemProps) => {
+export default ({ item, meal, fetchData, counts }: ItemProps) => {
+  let meal_id;
+  useEffect(() => {
+    meal_id = localStorage.getItem("meal_id");
+  });
   function deleteItem() {
     axios
       .delete(
@@ -17,12 +22,9 @@ export default ({ item, meal, fetchData }: ItemProps) => {
         fetchData();
       });
   }
-  let meal_id;
-  useEffect(() => {
-    meal_id = localStorage.getItem("meal_id");
-  });
   return (
     <div className="MealPlan_ItemContainer">
+      <p>{item.count}</p>
       <p className="MealPlan_NameOfFoodText">{item.name}</p>
       <p className="MealPlan_NutrientValue">{item.calories}</p>
       <p className="MealPlan_NutrientValue">{item.protein}</p>
