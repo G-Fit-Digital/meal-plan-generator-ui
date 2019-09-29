@@ -18,7 +18,11 @@ export default ({ el, meal, fetchData }) => {
     }
     for (var i = 0; i < arr.length; i++) {
       for (var j = 0; j < arr.length; j++) {
-        if (arr[i].name === arr[j].name && arr[i].count > 1) {
+        if (
+          arr[i].name === arr[j].name &&
+          arr[i].count > 1 &&
+          arr[j].count > 1
+        ) {
           arr.splice(j, 1);
         }
       }
