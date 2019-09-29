@@ -22,6 +22,15 @@ export default ({ item, meal, fetchData, counts }: ItemProps) => {
         fetchData();
       });
   }
+  function addItem() {
+    axios
+      .post(
+        `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
+      )
+      .then(() => {
+        fetchData();
+      });
+  }
   return (
     <div className="MealPlan_ItemContainer">
       <p>{item.count}</p>
@@ -30,13 +39,17 @@ export default ({ item, meal, fetchData, counts }: ItemProps) => {
       <p className="MealPlan_NutrientValue">{item.protein}</p>
       <p className="MealPlan_NutrientValue">{item.carbs}</p>
       <p className="MealPlan_NutrientValue">{item.fat}</p>
-      <div
-        onClick={() => {
-          deleteItem();
-        }}
-        className="MealPlan_DeleteContainer"
-      >
-        <p className="MealPlan_DeleteIcon">x</p>
+      <div className="MealPlan_DeleteContainer">
+        <div>
+          <p
+            onClick={() => {
+              deleteItem();
+            }}
+            className="MealPlan_DeleteIcon"
+          >
+            -
+          </p>
+        </div>
       </div>
     </div>
   );

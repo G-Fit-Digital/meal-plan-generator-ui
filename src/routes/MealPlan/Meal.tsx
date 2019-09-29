@@ -17,9 +17,9 @@ export default ({ el, meal, fetchData }) => {
       }
     }
     for (var i = 0; i < arr.length; i++) {
-      for (var j = i + 1; j < arr.length; j++) {
-        if (arr[i].name === arr[j].name) {
-          arr.splice(i, 1);
+      for (var j = 0; j < arr.length; j++) {
+        if (arr[i].name === arr[j].name && arr[i].count > 1) {
+          arr.splice(j, 1);
         }
       }
     }
@@ -32,10 +32,6 @@ export default ({ el, meal, fetchData }) => {
         <p className="MealPlan_MealName">
           {el.meal.substring(0, 1).toUpperCase() + el.meal.substring(1)}
         </p>
-        {/* {meal.meal &&
-          el.items.map(ex => (
-            <Item meal={el._id} fetchData={fetchData} item={ex} />
-          ))} */}
         {finalArr.map(ex => (
           <Item meal={el._id} fetchData={fetchData} item={ex} />
         ))}

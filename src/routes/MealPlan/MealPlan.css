@@ -44,10 +44,8 @@
   margin-bottom: 0px;
   display: flex;
   color: red;
-}
-:hover.MealPlan_DeleteIcon {
-  padding: 25px;
-  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 .MealPlan_NutrientValue {
   width: 10%;
