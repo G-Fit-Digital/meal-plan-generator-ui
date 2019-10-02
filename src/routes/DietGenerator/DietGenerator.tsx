@@ -36,6 +36,7 @@ export default ({ props }) => {
       activityLevel,
       aggressiveness
     );
+    console.log("THIS HERE ISNT LOCALHOST");
     axios
       .post(
         `http://3.16.31.235:3000/api/meal/calories/${response.target_daily_calories}/protein/${response.protein}/carb/${response.carbs_in_grams}/fat/${response.fat_in_grams}`,
