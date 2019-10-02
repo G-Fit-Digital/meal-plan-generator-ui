@@ -75,6 +75,7 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
   };
   return (
     <div
+      style={{ justifyContent: "space-between" }}
       className={
         isMealTotal ? "MealPlan_ItemContainer_IsMeal" : "MealPlan_ItemContainer"
       }
@@ -180,7 +181,7 @@ export default ({ plan, isMealTotal, meal }: FooterProp) => {
             <span
               style={{
                 color:
-                  parseInt(getTargetTotal("fat")) > 0 ? "#61ab4a" : "#d6324d",
+                  parseInt(getTargetTotal("fat  ")) > 0 ? "#61ab4a" : "#d6324d",
               }}
             >
               ({getTargetTotal("fat")})

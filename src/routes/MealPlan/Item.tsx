@@ -33,8 +33,9 @@ export default ({ item, meal, fetchData, counts }: ItemProps) => {
   }
   return (
     <div className="MealPlan_ItemContainer">
-      <p>{item.count}</p>
-      <p className="MealPlan_NameOfFoodText">{item.name}</p>
+      <p className="MealPlan_NameOfFoodText">
+        <span style={{ color: "#000" }}>(x{item.count})</span> {item.name}
+      </p>
       <p className="MealPlan_NutrientValue">{item.calories}</p>
       <p className="MealPlan_NutrientValue">{item.protein}</p>
       <p className="MealPlan_NutrientValue">{item.carbs}</p>

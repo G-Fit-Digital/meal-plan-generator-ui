@@ -55,7 +55,7 @@ export default ({ meal, fetchData }) => {
       <p className="MealPlan_NutrientName">{carbs}</p>
       <p className="MealPlan_NutrientName">{fat}</p>
       <p onClick={() => addItem()} className="MealPlan_AddItemText">
-        Add Item
+        +
       </p>
     </div>
   );
