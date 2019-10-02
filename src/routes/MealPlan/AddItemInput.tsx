@@ -54,7 +54,11 @@ export default ({ meal, fetchData }) => {
       <p className="MealPlan_NutrientName">{protein}</p>
       <p className="MealPlan_NutrientName">{carbs}</p>
       <p className="MealPlan_NutrientName">{fat}</p>
-      <p onClick={() => addItem()} className="MealPlan_AddItemText">
+      <p
+        style={{ color: "#61ab4a", fontSize: 20, padding: 5 }}
+        onClick={() => addItem()}
+        className="MealPlan_AddItemText"
+      >
         +
       </p>
     </div>
