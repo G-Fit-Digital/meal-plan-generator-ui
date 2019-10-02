@@ -6,7 +6,7 @@ import "./MealsLanding.css";
 export default ({ props }) => {
   const [meals, setMeals] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3000/api/meal").then(res => {
+    axios.get("http://3.16.31.235:3000/api/meal").then(res => {
       setMeals(res.data);
     });
   }, []);

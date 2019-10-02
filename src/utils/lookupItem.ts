@@ -14,7 +14,7 @@ export function lookUpItem(
 ) {
   if (item.ndbno) {
     axios
-      .get(`http://localhost:3000/select/${item.ndbno}`)
+      .get(`http://3.16.31.235:3000/select/${item.ndbno}`)
       .then(res => {
         setResponse(res.data);
         setServing(res.data.report.food.nutrients[0].measures[index].label);

@@ -86,7 +86,7 @@ export default ({ isOpen }: any) => {
     }
     console.log(mealCategories);
     axios
-      .post(`http://localhost:3000/api/item`, {
+      .post(`http://3.16.31.235:3000/api/item`, {
         name: item.name,
         meal_category: meal_category,
         food_category: food_category,

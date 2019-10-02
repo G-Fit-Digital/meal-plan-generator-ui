@@ -12,14 +12,16 @@ export default ({ meal, fetchData }) => {
   const [carbs, setCarbs] = useState(0);
   const [fat, setFat] = useState(0);
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/item/search/${query}`).then(res => {
+    axios.get(`http://3.16.31.235:3000/api/item/search/${query}`).then(res => {
       setResults(res.data);
     });
   }, [query]);
   function addItem() {
     let meal_id = localStorage.getItem("meal_id");
     axios
-      .post(`http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${id}`)
+      .post(
+        `http://3.16.31.235:3000/api/meal/${meal_id}/meal/${meal}/item/${id}`
+      )
       .then(() => {
         fetchData();
         setQuery("");

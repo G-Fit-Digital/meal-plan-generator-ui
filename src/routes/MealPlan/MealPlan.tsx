@@ -13,7 +13,7 @@ export default ({ props }: any) => {
   const meal_id = localStorage.getItem("meal_id");
   const [meal, setMeal] = useState({ _id: "", meal: [] });
   async function fetchData() {
-    await axios.get(`http://localhost:3000/api/meal/${meal_id}`).then(res => {
+    await axios.get(`http://3.16.31.235:3000/api/meal/${meal_id}`).then(res => {
       setMeal(res.data);
     });
   }

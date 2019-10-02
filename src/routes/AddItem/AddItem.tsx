@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/search/${query}`)
+      .get(`http://3.16.31.235:3000/search/${query}`)
       .then(res => {
         if (res.data.list.item.length > 0) {
           setResults(res.data.list.item);

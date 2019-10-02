@@ -38,7 +38,7 @@ export default ({ props }) => {
     );
     axios
       .post(
-        `http://localhost:3000/api/meal/calories/${response.target_daily_calories}/protein/${response.protein}/carb/${response.carbs_in_grams}/fat/${response.fat_in_grams}`,
+        `http://3.16.31.235:3000/api/meal/calories/${response.target_daily_calories}/protein/${response.protein}/carb/${response.carbs_in_grams}/fat/${response.fat_in_grams}`,
         {
           data: {
             restrictions: restrictions,

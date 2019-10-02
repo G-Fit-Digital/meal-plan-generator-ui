@@ -16,7 +16,7 @@ export default ({ item, meal, fetchData, counts }: ItemProps) => {
   function deleteItem() {
     axios
       .delete(
-        `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
+        `http://3.16.31.235:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
       )
       .then(() => {
         fetchData();
@@ -25,7 +25,7 @@ export default ({ item, meal, fetchData, counts }: ItemProps) => {
   function addItem() {
     axios
       .post(
-        `http://localhost:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
+        `http://3.16.31.235:3000/api/meal/${meal_id}/meal/${meal}/item/${item._id}`
       )
       .then(() => {
         fetchData();
